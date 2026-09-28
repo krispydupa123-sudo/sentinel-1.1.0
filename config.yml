@@ -1,0 +1,44 @@
+config-version: 2
+
+# false = cheaterzy dostają bana. true = tylko alerty (tryb testowy).
+# Możesz to przełączyć w grze: /sentinel -> czerwony/zielony klocek.
+dry-run: false
+
+# Poniżej tego TPS-a checki oparte na czasie są wstrzymane (żeby lagi nie banowały niewinnych)
+min-tps: 18.0
+
+# Cofanie cheatera na ostatnie bezpieczne miejsce przy wykryciu ruchu
+setback: true
+
+# Ile VL znika co 10 sekund
+vl-decay: 0.5
+
+ban:
+  duration-days: 7
+  broadcast: true
+  lightning: true
+  broadcast-message: "&8[&cSentinel&8] &f{player} &7został zbanowany za cheaty."
+  # Placeholdery: {player} {check} {duration} {id}
+  kick-message:
+    - "&c&lSENTINEL ANTI-CHEAT"
+    - ""
+    - "&7Wykryto użycie niedozwolonego oprogramowania."
+    - "&7Moduł: &f{check}"
+    - "&7Ban na: &f{duration}"
+    - "&7ID bana: &f{id}"
+    - ""
+    - "&8Odwołanie: discord.twojserwer.pl"
+
+checks:
+  speed:       { enabled: true, ban-vl: 12, max-speed: 0.68 }
+  fly:         { enabled: true, ban-vl: 15 }
+  nofall:      { enabled: true, ban-vl: 10 }
+  jesus:       { enabled: true, ban-vl: 12 }
+  timer:       { enabled: true, ban-vl: 15 }
+  reach:       { enabled: true, ban-vl: 12, max-reach: 3.0 }
+  killaura:    { enabled: true, ban-vl: 15 }
+  multiaura:   { enabled: true, ban-vl: 9 }
+  autoclicker: { enabled: true, ban-vl: 15, max-cps: 22 }
+  nuker:       { enabled: true, ban-vl: 12, max-breaks-per-sec: 15, max-block-reach: 6.5 }
+  fastplace:   { enabled: true, ban-vl: 12, max-places-per-sec: 20 }
+  scaffold:    { enabled: true, ban-vl: 20 }
