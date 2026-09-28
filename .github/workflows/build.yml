@@ -16,4 +16,5 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: Sentinel-jar
-          path: path: target/*.jar
+          path: target/*.jar
+          if-no-files-found: error
